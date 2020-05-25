@@ -39,22 +39,20 @@ export default class Label extends Component<LabelProps, LabelStates> {
     }
 
     private limitText = (text: string) => {
-        if (this.state.isTrimmed) {
-            return (
-            <> 
-                {text.slice(0,84)}...<br/>
-                <label onClick={this.toggleTrim} className="see-label">See more</label>
-            </>)
-        } else {
-            return (
-                <> 
+        return (
+            this.state.isTrimmed ? 
+                (<>
+                    {text.slice(0, 84)}...<br />
+                    <label onClick={this.toggleTrim} className="see-label">See more</label>
+                </>) :
+                (<> 
                     {text}<br/>
                     <label onClick={this.toggleTrim} className="see-label">See less</label>
                 </>)
-        }
+        );
     }
 
     private toggleTrim = () => {
-        this.state.isTrimmed ? this.setState({isTrimmed: false}) : this.setState({isTrimmed: true});
+        this.setState({isTrimmed : !this.state.isTrimmed})
     }
 }
