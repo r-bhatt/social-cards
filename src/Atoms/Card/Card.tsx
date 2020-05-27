@@ -5,6 +5,7 @@ import Label from '../Label/Label';
 import { LabelTypes } from '../Label/LabelProps';
 import { Statsbar } from './Statsbar/Statsbar';
 import { CardStates } from './CardStates';
+import { CommentBox } from './CommentBox/CommentBox';
 
 const defaultAvatar = 'https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60';
 
@@ -52,6 +53,11 @@ export default class Card extends Component<CardProps, CardStates> {
                         isLiked={this.state.isLiked}
                         toggleLike={this.toggleLike}
                         key={this.state.isLiked ? 1 : 0}
+                    />
+                    <CommentBox
+                        data={{
+                            placeholder:"What's in your mind ..."
+                        }}
                     />
                 </div>
             </div>
